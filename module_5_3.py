@@ -14,19 +14,35 @@ class House():
       return (f'Название:{self.name},кол-во этажей: {self.number_of_floors}')
   def __eq__(self, other):
     if isinstance(other, House):
-      return self.number_of_floors == other
+        return self.number_of_floors == other.number_of_floors
     else:
-      return False
+        return False
   def __lt__(self, other):
-      return self.number_of_floors < other
+      if isinstance(other, House):
+          return self.number_of_floors < other.number_of_floors
+      else:
+          return False
   def __le__(self, other):
-      return self.number_of_floors <= other
+      if isinstance(other, House):
+          return self.number_of_floors <= other.number_of_floors
+      else:
+          return False
+  #     return self.number_of_floors <= other
   def __gt__(self, other):
-      return self.number_of_floors > other
+      if isinstance(other, House):
+          return self.number_of_floors > other.number_of_floors
+      else:
+          return False
   def __ge__(self, other):
-      return self.number_of_floors >= other
+      if isinstance(other, House):
+          return self.number_of_floors >= other.number_of_floors
+      else:
+          return False
   def __ne__(self, other):
-      return self.number_of_floors != other
+      if isinstance(other, House):
+          return self.number_of_floors != other.number_of_floors
+      else:
+          return False
   def __add__(self, value):
     if isinstance(value, int):
       return House(self.name, self.number_of_floors + value)
